@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>PaceIQ — spoken pace coaching for Apple Watch and iPhone</title>
+<meta name="description" content="PaceIQ is a running and walking app that puts the personal experience first: a private coach in your ear during the workout, and one honest screen afterwards. Reviewer materials and downloadable example plans.">
+<link rel="icon" type="image/png" href="assets/paceiq-icon.png">
+<meta property="og:title" content="PaceIQ — spoken pace coaching for Apple Watch and iPhone">
+<meta property="og:description" content="A private coach in your ear during the workout, and one honest screen afterwards. No feed, no leaderboard, no PaceIQ account.">
+<meta property="og:image" content="assets/paceiq-icon.png">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #090a0b;
+  --panel: #191b1e;
+  --panel-soft: #111315;
+  --text: #f4f5f6;
+  --muted: #b0b5bd;
+  --line: #34383e;
+  --blue: #3f8ef7;
+  --link: #83b7ff;
+  --amber: #fcb750;
+  --green: #30d158;
+  --gradient: linear-gradient(110deg, #35a8dc, #4fc98a 55%, #c9e65a);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .23em;
+}
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, video:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 5px;
+}
+img, video { display: block; max-width: 100%; height: auto; }
+figure, dl, dd { margin: 0; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+h1, h2 { letter-spacing: -.055em; }
+h1 { font-size: clamp(44px, 6.1vw, 78px); line-height: 1.04; font-weight: 720; }
+h2 { font-size: clamp(32px, 4vw, 49px); line-height: 1.12; font-weight: 680; }
+h3 { font-size: 23px; line-height: 1.25; letter-spacing: -.025em; }
+p { text-wrap: pretty; }
+.wrap { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
+section { padding-block: 96px; scroll-margin-top: 24px; }
+section + section { border-top: 1px solid var(--line); }
+.muted, .lede, figcaption { color: var(--muted); }
+.lede { font-size: 19px; max-width: 730px; margin-top: 22px; }
+.eyebrow {
+  color: var(--amber);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 750;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.section-intro { max-width: 790px; margin-bottom: 48px; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 19px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: var(--blue);
+  color: #07111e;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 750;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.button:hover { background: #6caaff; text-decoration: none; }
+.button.secondary { background: transparent; color: var(--text); border-color: #646a73; }
+.button.secondary:hover { background: #252a30; }
+header { border-bottom: 1px solid var(--line); }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 88px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+.brand img { width: 38px; height: 38px; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 24px; margin-left: auto; }
+.nav-links a { color: var(--muted); font-size: 14px; text-decoration: none; padding-block: 12px; }
+.nav-links a:hover { color: var(--text); text-decoration: underline; }
+.nav > .button { min-height: 44px; padding: 10px 16px; }
+.hero { padding-top: 64px; padding-bottom: 72px; }
+.hero-heading { position: relative; padding-left: 27px; }
+.hero-heading::before {
+  content: "";
+  position: absolute;
+  inset: 5px auto 4px 0;
+  width: 4px;
+  background: var(--gradient);
+  border-radius: 4px;
+}
+.hero-heading .accent { color: #91d9ae; }
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .hero-heading .accent {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-top: 44px;
+}
+.hero-copy .lede { margin-top: 0; font-size: 18px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-note { margin-top: 18px; font-size: 13px; color: var(--muted); }
+.hero-stage {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: 22px;
+  padding: 28px 22px;
+  border-block: 1px solid var(--line);
+  background: radial-gradient(ellipse at 35% 45%, #193129 0, #11191b 42%, var(--bg) 75%);
+}
+.watch-frame {
+  width: 184px;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 5px;
+  background: #080909;
+  border: 1px solid #59605f;
+  border-radius: 38px;
+  box-shadow: 0 16px 35px #0007;
+}
+.watch-frame img { width: 100%; border-radius: 32px; }
+.island-frame {
+  padding: 8px;
+  border: 1px solid #45494f;
+  border-radius: 17px;
+  background: #000;
+}
+.island-frame img { width: 100%; border-radius: 10px; }
+.steps { border-top: 1px solid var(--line); }
+.step {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 340px;
+  gap: 32px;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+}
+.step-number {
+  align-self: start;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -.06em;
+  color: #8bd3ab;
+  font-weight: 350;
+}
+.step-copy { max-width: 540px; }
+.step-copy p { margin-top: 16px; color: var(--muted); }
+.step-media {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding: 25px;
+  background: var(--panel-soft);
+  border: 1px solid #292d32;
+  border-radius: 16px;
+}
+.video-frame {
+  width: 210px;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #000;
+  border: 1px solid #50565e;
+}
+.video-frame video { width: 100%; }
+.step-media figcaption { font-size: 13px; line-height: 1.5; text-align: center; }
+.callout {
+  margin-top: 28px;
+  padding: 24px 28px;
+  border-left: 3px solid var(--amber);
+  background: #201b13;
+  color: #ded8cd;
+  font-size: 16px;
+}
+.callout strong { color: var(--amber); }
+.strength-list { border-top: 1px solid var(--line); }
+.strength {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 40px;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--line);
+}
+.strength h3 { display: flex; align-items: baseline; gap: 12px; }
+.strength h3::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--blue);
+}
+.strength.during h3::before { background: var(--green); }
+.strength.after h3::before { background: #c9e65a; }
+.strength ul { list-style: none; padding: 0; margin: 0; }
+.strength li { color: var(--muted); }
+.strength li + li { margin-top: 19px; }
+.strength strong { color: var(--text); font-weight: 650; }
+.price-panel {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 40px;
+  margin-top: 32px;
+  padding: 32px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--amber);
+  border-radius: 0 0 14px 14px;
+}
+.price-panel h3 { color: var(--amber); margin-bottom: 20px; }
+.price { font-size: 51px; line-height: 1.1; letter-spacing: -.05em; font-weight: 700; }
+.price small { display: block; margin-top: 12px; font-size: 14px; line-height: 1.6; letter-spacing: 0; font-weight: 400; color: var(--muted); }
+.price-panel > p { align-self: center; color: var(--muted); }
+.limitations {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 40px;
+  padding: 36px 0;
+}
+.limitations p { color: var(--muted); }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px;
+  padding-top: 18px;
+}
+.gallery figure {
+  min-width: 0;
+  padding: 16px;
+  background: var(--panel-soft);
+  border: 1px solid #292d32;
+  border-radius: 14px;
+}
+.gallery .full-screen { grid-row: span 2; }
+.gallery img { width: 100%; border-radius: 8px; }
+.gallery figcaption { font-size: 13px; line-height: 1.5; margin-top: 14px; }
+.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.tier-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 24px;
+}
+.tier-card h3 { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; font-size: 14px; color: var(--muted); }
+.tier-card h3 span { color: var(--amber); font-size: 44px; line-height: 1; font-weight: 500; }
+.tier-card dl > div { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding-block: 8px; }
+.tier-card dt { color: var(--muted); font-size: 14px; }
+.tier-card dd { flex-shrink: 0; font-size: 15px; font-variant-numeric: tabular-nums; }
+.tier-card .pace-start { border-top: 1px solid #444a52; margin-top: 10px; padding-top: 18px; }
+.pace-note { color: var(--muted); margin-top: 18px; font-size: 14px; }
+.plan-list { margin-top: 42px; border-top: 1px solid var(--line); }
+.plan {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 246px;
+  gap: 38px;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--line);
+}
+.plan-description { min-width: 0; }
+.notation {
+  display: block;
+  color: #c9e65a;
+  font: 14px/1.65 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  margin-block: 14px;
+  overflow-wrap: anywhere;
+}
+.plan-description p { color: var(--muted); font-size: 16px; max-width: 740px; }
+.plan-downloads { align-self: center; }
+.total { display: block; font-size: 15px; color: var(--muted); margin-bottom: 14px; }
+.downloads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.downloads a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 10px 6px;
+  border: 1px solid #59677a;
+  border-radius: 8px;
+  background: #182332;
+  color: #c4deff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 650;
+}
+.downloads a:hover { background: #293d56; border-color: var(--blue); }
+.howto {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 40px;
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-top: 28px;
+  padding: 28px;
+}
+.howto ol { padding-left: 22px; margin: 0; color: var(--muted); }
+.howto li { padding-left: 5px; margin-bottom: 10px; }
+.howto li::marker { color: var(--amber); font-weight: 700; }
+.howto p { color: var(--amber); font-size: 14px; margin-top: 18px; }
+.facts { border-top: 1px solid var(--line); }
+.fact {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 40px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.fact dt { color: var(--muted); font-size: 14px; }
+.fact dd { min-width: 0; overflow-wrap: anywhere; }
+.fact .value { font-size: 19px; font-weight: 600; }
+.fact .sub { font-size: 15px; color: var(--muted); margin-top: 6px; }
+.press-kit { margin-top: 44px; padding: 30px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
+.press-head { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 24px; align-items: start; }
+.press-head img { width: 80px; height: 80px; }
+.press-head h3 { margin-bottom: 16px; }
+.press-head .button { background: var(--gradient); color: #071a13; }
+.press-head .muted { font-size: 14px; margin-top: 14px; }
+.asset-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 0;
+}
+.asset-list li { min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 12px; border-top: 1px solid #41464d; padding: 10px 0; }
+.asset-list a { min-width: 0; overflow-wrap: anywhere; padding-block: 8px; font-size: 14px; }
+.asset-list span { color: var(--muted); font-size: 12px; }
+footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var(--muted); font-size: 13px; }
+.footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.footer-rule { height: 3px; width: 88px; background: var(--gradient); margin-bottom: 24px; }
+@media (max-width: 900px) {
+  .nav { gap: 16px; flex-wrap: wrap; padding-block: 16px; }
+  .nav > .button { margin-left: auto; }
+  .nav-links { order: 3; width: 100%; margin: 0; justify-content: space-between; gap: 10px; }
+  .hero-bottom { gap: 26px; }
+  .hero-stage { grid-template-columns: 1fr; gap: 20px; }
+  .island-frame { max-width: 280px; margin-inline: auto; }
+  .step { grid-template-columns: 48px minmax(0, 1fr) 260px; gap: 22px; }
+  .strength, .limitations, .fact { grid-template-columns: 180px minmax(0, 1fr); gap: 28px; }
+  .price-panel, .howto { grid-template-columns: 180px minmax(0, 1fr); gap: 28px; }
+  .tier-card { padding: 18px; }
+  .tier-card dl > div { gap: 8px; }
+}
+@media (max-width: 680px) {
+  body { font-size: 16px; }
+  section { padding-block: 60px; }
+  .nav { column-gap: 12px; }
+  .nav-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  .nav-links a { padding-block: 8px; min-height: 40px; }
+  .hero { padding-top: 40px; }
+  .hero-heading { padding-left: 17px; }
+  h1 { font-size: clamp(40px, 10.9vw, 64px); }
+  .hero-bottom { grid-template-columns: 1fr; gap: 30px; margin-top: 28px; }
+  .hero-copy .lede, .lede { font-size: 17px; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; }
+  .hero-stage { grid-template-columns: .9fr 1.1fr; gap: 16px; padding: 24px 12px; }
+  .hero-stage .watch-frame { border-radius: 28px; padding: 4px; }
+  .hero-stage .watch-frame img { border-radius: 23px; }
+  .hero-stage .island-frame { padding: 5px; border-radius: 12px; }
+  .section-intro { margin-bottom: 30px; }
+  .step { grid-template-columns: 36px minmax(0, 1fr); gap: 18px; padding-block: 30px; }
+  .step-number { font-size: 39px; }
+  .step-media { grid-column: 1 / -1; padding: 24px; }
+  .video-frame { width: 240px; }
+  .step-media .watch-frame { width: 180px; }
+  .callout { padding: 20px; }
+  .strength, .limitations, .price-panel, .howto, .fact { grid-template-columns: 1fr; gap: 18px; }
+  .strength { padding-block: 28px; }
+  .price-panel, .howto { padding: 24px; }
+  .price-panel h3 { margin-bottom: 14px; }
+  .price small { max-width: 240px; }
+  .limitations { padding-block: 30px; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .gallery .full-screen { grid-row: auto; }
+  .gallery figure { padding: 9px; border-radius: 10px; }
+  .gallery figcaption { font-size: 12px; margin-top: 10px; }
+  .tiers { grid-template-columns: 1fr; gap: 14px; }
+  .tier-card { padding: 24px; }
+  .tier-card dt { font-size: 15px; }
+  .tier-card dd { font-size: 16px; }
+  .plan { grid-template-columns: 1fr; gap: 20px; padding-block: 28px; }
+  .downloads { gap: 10px; }
+  .downloads a { font-size: 15px; }
+  .fact { gap: 8px; padding-block: 22px; }
+  .fact .value { font-size: 18px; }
+  .press-kit { padding: 20px; }
+  .press-head { grid-template-columns: 1fr; gap: 18px; }
+  .press-head img { width: 60px; height: 60px; }
+  .press-head .button { width: 100%; }
+  .asset-list { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (forced-colors: active) {
+  .hero-heading .accent { background: none; color: CanvasText; }
+  .hero-heading::before, .footer-rule { background: CanvasText; }
+  .button, .downloads a { border: 1px solid ButtonText; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="assets/paceiq-icon.png" width="38" height="38" alt="PaceIQ icon">PaceIQ</a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#plans">Example plans</a>
+      <a href="#reviewers">For reviewers</a>
+    </nav>
+    <a class="button secondary" href="https://apps.apple.com/il/app/paceiq/id6766809450">App Store</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-heading">
+      <h1 id="hero-title">A private coach in your ear.<br><span class="accent">One honest screen afterwards.</span></h1>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-copy">
+        <p class="lede">PaceIQ is a running and walking app for Apple Watch and iPhone that puts the personal experience first. You can share a workout if you want to, but there is no feed, no leaderboard and no PaceIQ account.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://apps.apple.com/il/app/paceiq/id6766809450">Download on the App Store</a>
+          <a class="button secondary" href="#how">See how it works</a>
+        </div>
+        <p class="hero-note">Made by Sagi Gal, PaceIQ's solo developer. Apple Watch and iPhone only.</p>
+      </div>
+      <div class="hero-stage">
+        <div class="watch-frame">
+          <img src="assets/watch-during-workout.png" width="416" height="496" alt="Apple Watch during a PaceIQ guided run: pace window bar, heart rate, average pace, current pace and distance">
+        </div>
+        <div class="island-frame">
+          <img src="assets/live-activity.png" width="1080" height="616" alt="iPhone Live Activity for a PaceIQ guided run in the Dynamic Island: split 2 of 4, current pace inside the pace window, heart rate, average pace and distance">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">How it works</div>
+      <h2 id="how-title">Plan it on the iPhone. Run it with the coach.</h2>
+      <p class="lede">Three steps, and the coach talks to you from the first kilometre.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <div class="step-number">1</div>
+        <div class="step-copy">
+          <h3>Plan a guided workout in IQ Plan</h3>
+          <p>Pick run or walk, a goal and a pace: your own, or one the app predicts from your workout history. Go as it is, or shape the session segment by segment, or let a built-in template lay it out in one tap.</p>
+        </div>
+        <figure class="step-media">
+          <div class="video-frame">
+            <video controls preload="none" playsinline poster="assets/iq-plan-recording-poster.jpg" src="assets/iq-plan-recording.mp4" aria-label="Screen recording: building a basic planned workout in IQ Plan"></video>
+          </div>
+          <figcaption>Tap to play: building a basic planned workout (27 s).</figcaption>
+        </figure>
+      </article>
+
+      <article class="step">
+        <div class="step-number">2</div>
+        <div class="step-copy">
+          <h3>Send it to your Apple Watch</h3>
+          <p>One tap syncs the plan to the Watch, where it waits for you. Or start it on the iPhone alone (iOS 26 or later) and the coach speaks through your headphones.</p>
+        </div>
+        <div class="step-media">
+          <div class="watch-frame">
+            <img src="assets/watch-ready-to-start.png" loading="lazy" width="416" height="496" alt="Apple Watch with a synced plan ready: Outdoor Run, workout goal 21.1 km, Start button">
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-number">3</div>
+        <div class="step-copy">
+          <h3>The coach guides you in real time</h3>
+          <p>Speed up, ease off, back on track: spoken cues that follow your own drift, correcting you once you have really left your pace, not at every wobble. The screen shows where you are inside your pace window.</p>
+        </div>
+        <div class="step-media">
+          <div class="watch-frame">
+            <img src="assets/watch-during-workout.png" loading="lazy" width="416" height="496" alt="Apple Watch during a guided run: current pace 4'54 inside the green pace window, 5 seconds ahead">
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <aside class="callout">
+      <strong>Before you judge it:</strong> give PaceIQ two or three guided outdoor workouts rather than one. The coach learns your own stride during your first outdoor workouts, and that is when its guidance becomes precise. A guided workout is one you plan with a target pace in the IQ Plan tab; the quick free session on the Watch records your workout but does not coach.
+    </aside>
+  </div>
+</section>
+
+<section id="strengths" aria-labelledby="strengths-title">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Strengths at a glance</div>
+      <h2 id="strengths-title">What PaceIQ does well</h2>
+      <p class="lede">A two-minute read. Everything here is in the shipping app.</p>
+    </div>
+
+    <div class="strength-list">
+      <article class="strength">
+        <h3>Planning</h3>
+        <ul>
+          <li><strong>Quick and flexible.</strong> Pick run or walk, a goal and a pace: your own, or one the app predicts from your own workout history.</li>
+          <li><strong>Shape the session</strong> segment by segment, or let a built-in template lay it out for you: intervals, tempo, Yasso 800s, run/walk.</li>
+          <li><strong>Save and share.</strong> Keep plans to reuse, and share them as a file with a friend, a group or a coach who also has Elite.</li>
+        </ul>
+      </article>
+
+      <article class="strength during">
+        <h3>During the workout</h3>
+        <ul>
+          <li><strong>A coach that talks to you</strong> in real time (speed up, ease off, back on track) and follows your own drift: it corrects you once you have really left your pace, not at every wobble.</li>
+          <li><strong>An effort ceiling.</strong> Set one and the coach tells you to ease off when your heart rate goes above it, even if that means falling behind your pace target.</li>
+          <li><strong>It learns your stride</strong> during your first outdoor workouts and keeps refining it. It speaks 17 languages.</li>
+          <li><strong>The Watch works on its own.</strong> Start a quick free session straight from the wrist, with no pace guidance, no finish goal and no iPhone. Or, once a plan is on the Watch, start it again and again with no iPhone around.</li>
+        </ul>
+      </article>
+
+      <article class="strength after">
+        <h3>After the workout</h3>
+        <ul>
+          <li><strong>Any app's workouts, deeper with PaceIQ.</strong> PaceIQ also analyses runs and walks that other apps save to Apple Health. Workouts recorded with PaceIQ go deeper: plan versus actual for every segment, weather snapshots along the session, the Watch's own climb and descent measurement, heart-rate recovery.</li>
+          <li><strong>On your own devices.</strong> PaceIQ analyses your workouts on your own devices; there is no PaceIQ server. You choose whether to share a workout or paste its briefing into an AI assistant.</li>
+          <li><strong>Honest cards.</strong> The analysis cards explain how their scores are computed, and say so when the data is missing instead of inventing a number. The running-form and fluid-loss explanations link to the published research they draw on, by DOI.</li>
+          <li><strong>A briefing for the AI assistant you already use.</strong> Elite copies a briefing of one workout, or of up to 30 recent workouts as a trend, to your clipboard. Paste it into any AI assistant, free or paid. PaceIQ charges no AI fee, and the briefing goes nowhere unless you paste it.</li>
+        </ul>
+      </article>
+    </div>
+
+    <article class="price-panel">
+      <div>
+        <h3>Price</h3>
+        <div class="price">$34.99 <small>a year for Elite, the full tier (US store)</small></div>
+      </div>
+      <p>A year, not a month. Pro is $9.99 a year: full workout history, the advanced workout calculator and the detailed heart-rate graph. Elite adds the personal coach on your Watch, the physiological and running-style analysis, and the AI briefings. The free tier shows your last workout.</p>
+    </article>
+
+    <article class="limitations">
+      <h3>What it is not</h3>
+      <p>No multi-week training plans and no social network. It is built for Apple devices only. An Apple Watch gives you the complete experience. An iPhone alone, on iOS 26 or later, gives you the full guided, spoken workout, with a Live Activity card on the Lock Screen and in the Dynamic Island, and a Bluetooth heart-rate strap adds the heart-rate analytics. Running-style analysis needs the Watch, and the app says so instead of showing numbers it does not have.</p>
+    </article>
+
+    <div class="gallery">
+      <figure class="full-screen">
+        <img src="assets/post-workout-1.png" loading="lazy" width="1242" height="2688" alt="Post-workout screen: speed arc chart, average speed, distance, time, steps, average heart rate and the plan target summary">
+        <figcaption>The workout, one screen</figcaption>
+      </figure>
+      <figure class="full-screen">
+        <img src="assets/post-workout-2.png" loading="lazy" width="1242" height="2688" alt="Post-workout cards: Workout Focus and Heart Stability, and Running Style with stride length, ground contact, vertical oscillation and power">
+        <figcaption>Heart stability and running style</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/last-workout-ai-analyst.png" loading="lazy" width="1290" height="1031" alt="AI Analyst card with a Copy AI Analysis button and a Share button">
+        <figcaption>One workout, one briefing</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/history-ai-trend.png" loading="lazy" width="1290" height="1173" alt="AI Trend Analysis card in History with a workouts-to-include stepper set to 30 and a Copy Trend Briefing button">
+        <figcaption>Up to 30 workouts as a trend</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="plans" aria-labelledby="plans-title">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Example plans</div>
+      <h2 id="plans-title">Four staple sessions, ready to run</h2>
+      <p class="lede">Each session comes in three pace tiers. Pick the tier closest to your current race times, download the file on your iPhone, and PaceIQ opens it as a plan. Warm-up, recoveries and cool-down are free segments with no pace target.</p>
+    </div>
+
+    <div class="tiers">
+      <article class="tier-card">
+        <h3>Tier <span>A</span></h3>
+        <dl>
+          <div><dt>Recent 10K</dt><dd>39:20</dd></div>
+          <div><dt>Half marathon</dt><dd>1:27</dd></div>
+          <div><dt>Marathon</dt><dd>3:02</dd></div>
+          <div class="pace-start"><dt>Easy</dt><dd>4:53 /km</dd></div>
+          <div><dt>Marathon pace</dt><dd>4:18 /km</dd></div>
+          <div><dt>Half-marathon pace</dt><dd>4:08 /km</dd></div>
+          <div><dt>Threshold</dt><dd>4:04 /km</dd></div>
+          <div><dt>5K pace</dt><dd>3:44 /km</dd></div>
+        </dl>
+      </article>
+      <article class="tier-card">
+        <h3>Tier <span>B</span></h3>
+        <dl>
+          <div><dt>Recent 10K</dt><dd>42:04</dd></div>
+          <div><dt>Half marathon</dt><dd>1:33</dd></div>
+          <div><dt>Marathon</dt><dd>3:14</dd></div>
+          <div class="pace-start"><dt>Easy</dt><dd>5:12 /km</dd></div>
+          <div><dt>Marathon pace</dt><dd>4:36 /km</dd></div>
+          <div><dt>Half-marathon pace</dt><dd>4:25 /km</dd></div>
+          <div><dt>Threshold</dt><dd>4:20 /km</dd></div>
+          <div><dt>5K pace</dt><dd>3:59 /km</dd></div>
+        </dl>
+      </article>
+      <article class="tier-card">
+        <h3>Tier <span>C</span></h3>
+        <dl>
+          <div><dt>Recent 10K</dt><dd>45:16</dd></div>
+          <div><dt>Half marathon</dt><dd>1:40</dd></div>
+          <div><dt>Marathon</dt><dd>3:28</dd></div>
+          <div class="pace-start"><dt>Easy</dt><dd>5:34 /km</dd></div>
+          <div><dt>Marathon pace</dt><dd>4:57 /km</dd></div>
+          <div><dt>Half-marathon pace</dt><dd>4:45 /km</dd></div>
+          <div><dt>Threshold</dt><dd>4:38 /km</dd></div>
+          <div><dt>5K pace</dt><dd>4:16 /km</dd></div>
+        </dl>
+      </article>
+    </div>
+    <p class="pace-note">Training paces follow the Daniels VDOT tables (VDOT 53, 49 and 45). The paces are in the file; you can change any of them in IQ Plan before you run.</p>
+
+    <div class="plan-list">
+      <article class="plan" aria-labelledby="cruise-title">
+        <div class="plan-description">
+          <h3 id="cruise-title">Cruise intervals</h3>
+          <span class="notation">5 × 1 km @ T pace w/ 200 m jog</span>
+          <p>The weekly threshold staple. 2.5 km warm-up, five 1 km reps at threshold pace with 200 m jogs, 1.5 km cool-down.</p>
+        </div>
+        <div class="plan-downloads">
+          <span class="total">Total 9.8 km</span>
+          <div class="downloads" role="group" aria-labelledby="cruise-title">
+            <a href="plans/5_x_1_km_at_Threshold_Pace_200_m_jog_9_8_km_Tier_A.paceiq" download>Tier A</a>
+            <a href="plans/5_x_1_km_at_Threshold_Pace_200_m_jog_9_8_km_Tier_B.paceiq" download>Tier B</a>
+            <a href="plans/5_x_1_km_at_Threshold_Pace_200_m_jog_9_8_km_Tier_C.paceiq" download>Tier C</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="plan" aria-labelledby="vo2-title">
+        <div class="plan-description">
+          <h3 id="vo2-title">VO2max 1000s</h3>
+          <span class="notation">5 × 1000 m @ 5K pace w/ 400 m jog</span>
+          <p>Three-to-five-minute reps with a recovery shorter than the rep. 2.5 km warm-up, five 1000 m reps at 5K pace with 400 m jogs, 1.5 km cool-down.</p>
+        </div>
+        <div class="plan-downloads">
+          <span class="total">Total 10.6 km</span>
+          <div class="downloads" role="group" aria-labelledby="vo2-title">
+            <a href="plans/5_x_1000_m_at_5K_Pace_400_m_jog_10_6_km_Tier_A.paceiq" download>Tier A</a>
+            <a href="plans/5_x_1000_m_at_5K_Pace_400_m_jog_10_6_km_Tier_B.paceiq" download>Tier B</a>
+            <a href="plans/5_x_1000_m_at_5K_Pace_400_m_jog_10_6_km_Tier_C.paceiq" download>Tier C</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="plan" aria-labelledby="marathon-title">
+        <div class="plan-description">
+          <h3 id="marathon-title">Marathon-pace long run, fast finish</h3>
+          <span class="notation">21 km: 10 km easy → 6 km @ M pace → 2 km @ T pace</span>
+          <p>Race-specific endurance: finishing faster than marathon pace when tired. 2 km warm-up, 10 km easy, 6 km at marathon pace, 2 km at threshold pace, 1 km cool-down.</p>
+        </div>
+        <div class="plan-downloads">
+          <span class="total">Total 21 km</span>
+          <div class="downloads" role="group" aria-labelledby="marathon-title">
+            <a href="plans/21_km_Long_Run_6_km_at_Marathon_Pace_fast_finish_Tier_A.paceiq" download>Tier A</a>
+            <a href="plans/21_km_Long_Run_6_km_at_Marathon_Pace_fast_finish_Tier_B.paceiq" download>Tier B</a>
+            <a href="plans/21_km_Long_Run_6_km_at_Marathon_Pace_fast_finish_Tier_C.paceiq" download>Tier C</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="plan" aria-labelledby="half-title">
+        <div class="plan-description">
+          <h3 id="half-title">Half-marathon race-pace repeats</h3>
+          <span class="notation">3 × 4 km @ HM pace w/ 800 m jog</span>
+          <p>Goal-pace rehearsal about eight weeks out. 2 km warm-up, three 4 km reps at half-marathon pace with 800 m jogs, 1.5 km cool-down.</p>
+        </div>
+        <div class="plan-downloads">
+          <span class="total">Total 17.1 km</span>
+          <div class="downloads" role="group" aria-labelledby="half-title">
+            <a href="plans/3_x_4_km_at_Half_Marathon_Pace_800_m_jog_17_1_km_Tier_A.paceiq" download>Tier A</a>
+            <a href="plans/3_x_4_km_at_Half_Marathon_Pace_800_m_jog_17_1_km_Tier_B.paceiq" download>Tier B</a>
+            <a href="plans/3_x_4_km_at_Half_Marathon_Pace_800_m_jog_17_1_km_Tier_C.paceiq" download>Tier C</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <aside class="howto" aria-labelledby="loading-title">
+      <h3 id="loading-title">Loading a plan</h3>
+      <div>
+        <ol>
+          <li>Download the file on your iPhone, or AirDrop it from a Mac.</li>
+          <li>Open the file: PaceIQ shows an import preview with the plan's name and segments.</li>
+          <li>Load it into IQ Plan, or save it to your plan library, then send it to the Watch.</li>
+        </ol>
+        <p>Opening a plan file needs Elite.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="reviewers" aria-labelledby="reviewers-title">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">For reviewers</div>
+      <h2 id="reviewers-title">Facts, materials and a direct line</h2>
+      <p class="lede">Everything a review needs, in one place. If something is missing, write and it will be added.</p>
+    </div>
+
+    <dl class="facts">
+      <div class="fact">
+        <dt>App Store</dt>
+        <dd>
+          <div class="value"><a href="https://apps.apple.com/il/app/paceiq/id6766809450">PaceIQ on the App Store</a></div>
+          <div class="sub">Bundle: com.audiospot.PaceIQ</div>
+        </dd>
+      </div>
+      <div class="fact">
+        <dt>Contact</dt>
+        <dd>
+          <div class="value"><a href="mailto:sagi@audiospot.audio">sagi@audiospot.audio</a></div>
+          <div class="sub">Sagi Gal, solo developer. Replies personally.</div>
+        </dd>
+      </div>
+      <div class="fact">
+        <dt>Prices (US store)</dt>
+        <dd>
+          <div class="value">Elite $34.99 / year · Pro $9.99 / year</div>
+          <div class="sub">Free tier: your last workout.</div>
+        </dd>
+      </div>
+      <div class="fact">
+        <dt>Requirements</dt>
+        <dd>
+          <div class="value">iOS 17.6 or later · watchOS 10 or later</div>
+          <div class="sub">A guided workout on the iPhone alone needs iOS 26 or later.</div>
+        </dd>
+      </div>
+      <div class="fact">
+        <dt>Languages</dt>
+        <dd>
+          <div class="value">17 languages</div>
+          <div class="sub">Interface and spoken coaching, with a language switcher inside the app.</div>
+        </dd>
+      </div>
+      <div class="fact">
+        <dt>Data</dt>
+        <dd>
+          <div class="value">No PaceIQ account, no PaceIQ server</div>
+          <div class="sub">Workouts live in Apple Health and on your devices; sharing is your choice, each time.</div>
+        </dd>
+      </div>
+    </dl>
+
+    <div class="press-kit">
+      <div class="press-head">
+        <img src="assets/paceiq-icon.png" loading="lazy" width="80" height="80" alt="PaceIQ icon">
+        <div>
+          <h3>Press kit</h3>
+          <a class="button" href="assets/paceiq-press-kit.zip" download>Download the press kit (zip, 1.2 MB)</a>
+          <p class="muted">Icon with transparency (1024 px) and ten screenshots, or pick single files below.</p>
+        </div>
+      </div>
+      <ul class="asset-list">
+        <li><a href="assets/paceiq-icon.png" download>App icon, transparent background</a><span>1024 × 1024</span></li>
+        <li><a href="assets/start-tab.png" download>Start tab</a><span>iPhone</span></li>
+        <li><a href="assets/iq-plan-tab.png" download>IQ Plan tab</a><span>iPhone</span></li>
+        <li><a href="assets/calculator-tab.png" download>Calculator tab</a><span>iPhone</span></li>
+        <li><a href="assets/post-workout-1.png" download>Post-workout view 1</a><span>iPhone</span></li>
+        <li><a href="assets/post-workout-2.png" download>Post-workout view 2</a><span>iPhone</span></li>
+        <li><a href="assets/last-workout-ai-analyst.png" download>AI Analyst card</a><span>iPhone</span></li>
+        <li><a href="assets/history-ai-trend.png" download>AI Trend Analysis card</a><span>iPhone</span></li>
+        <li><a href="assets/live-activity.png" download>Live Activity, Dynamic Island</a><span>iPhone</span></li>
+        <li><a href="assets/watch-during-workout.png" download>During a guided run</a><span>Apple Watch</span></li>
+        <li><a href="assets/watch-ready-to-start.png" download>Plan ready to start</a><span>Apple Watch</span></li>
+        <li><a href="assets/iq-plan-recording.mp4" download>IQ Plan screen recording</a><span>MP4, 27 s, silent, 1 MB</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-rule" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <p>PaceIQ for Apple Watch and iPhone. Made by Sagi Gal. <a href="mailto:sagi@audiospot.audio">sagi@audiospot.audio</a></p>
+      <p>Apple, Apple Watch, iPhone, App Store, Dynamic Island and Apple Health are trademarks of Apple Inc. This page sets no cookies and loads nothing from third parties.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

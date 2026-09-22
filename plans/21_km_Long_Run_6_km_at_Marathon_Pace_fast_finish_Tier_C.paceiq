@@ -1,0 +1,49 @@
+{
+  "id": "42BEF9AA-5EF4-5C43-A5C0-35855D89386C",
+  "name": "21 km Long Run, 6 km at Marathon Pace, fast finish - Tier C",
+  "createdAt": "2026-09-22T09:00:00Z",
+  "goalType": "iq_plan_goal_distance",
+  "targetDistanceDisplay": 21.0,
+  "targetTimeMinutes": 30.0,
+  "paceStrategy": "iq_plan_strategy_manual",
+  "selectedFilter": "iq_plan_filter_outdoor_run",
+  "historyCount": 5.0,
+  "manualPaceText": "4:57",
+  "baselinePaceText": "4:57",
+  "advancedSplits": [
+    {
+      "id": "4FB7E7E5-5921-5622-BC65-B81F6E7AC283",
+      "type": "iq_plan_split_distance",
+      "valueText": "2.0",
+      "paceText": ""
+    },
+    {
+      "id": "8DE6D822-D871-53E8-B0D1-9B6A96BB6A5B",
+      "type": "iq_plan_split_distance",
+      "valueText": "10.0",
+      "paceText": "5:34"
+    },
+    {
+      "id": "410FD4F6-2B35-5315-BDBB-12D5DB8EFD49",
+      "type": "iq_plan_split_distance",
+      "valueText": "6.0",
+      "paceText": "4:57"
+    },
+    {
+      "id": "C32C4371-7FA3-5EF5-944C-41CCDA4E06E9",
+      "type": "iq_plan_split_distance",
+      "valueText": "2.0",
+      "paceText": "4:38"
+    },
+    {
+      "id": "3C249950-1077-5E94-B5EC-3BBA6752182E",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": ""
+    }
+  ],
+  "safetyGuardianEnabled": false,
+  "maxEffortRPE": 7.0,
+  "showAdvancedStrategy": true,
+  "isPaceFree": false
+}

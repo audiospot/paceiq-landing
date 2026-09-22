@@ -1,0 +1,85 @@
+{
+  "id": "A08F2A57-160F-5103-9826-F26B9F02B269",
+  "name": "5 x 1000 m at 5K Pace, 400 m jog (10.6 km) - Tier A",
+  "createdAt": "2026-09-22T09:00:00Z",
+  "goalType": "iq_plan_goal_distance",
+  "targetDistanceDisplay": 10.6,
+  "targetTimeMinutes": 30.0,
+  "paceStrategy": "iq_plan_strategy_manual",
+  "selectedFilter": "iq_plan_filter_outdoor_run",
+  "historyCount": 5.0,
+  "manualPaceText": "3:44",
+  "baselinePaceText": "3:44",
+  "advancedSplits": [
+    {
+      "id": "955D9541-7EE6-5D6D-9440-AEE6A14879F5",
+      "type": "iq_plan_split_distance",
+      "valueText": "2.5",
+      "paceText": ""
+    },
+    {
+      "id": "A30F75D1-2F43-5724-9584-536C34A82A66",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "3:44"
+    },
+    {
+      "id": "844E3038-DDDF-5EF5-A7E9-19CE188C7F92",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.4",
+      "paceText": ""
+    },
+    {
+      "id": "B4841453-94A8-5E7F-A99F-C51868EEBBB9",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "3:44"
+    },
+    {
+      "id": "62A182C3-F5DF-5014-8F83-3F1FC0FCB060",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.4",
+      "paceText": ""
+    },
+    {
+      "id": "845D82AF-0567-558D-9F38-CE167488A4A2",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "3:44"
+    },
+    {
+      "id": "8CBDABF3-1DA1-5600-8A51-A63C74EB87D4",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.4",
+      "paceText": ""
+    },
+    {
+      "id": "BB4FD5DF-6F6D-5812-AC48-63E7D19BAD59",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "3:44"
+    },
+    {
+      "id": "5A79CB95-B9CF-59E5-9B58-576BD8A36D03",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.4",
+      "paceText": ""
+    },
+    {
+      "id": "00441022-8D03-598C-9CA3-102FC3EBDEE9",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "3:44"
+    },
+    {
+      "id": "34B78CE9-B1BD-5723-A42A-24CD051E9614",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.5",
+      "paceText": ""
+    }
+  ],
+  "safetyGuardianEnabled": false,
+  "maxEffortRPE": 7.0,
+  "showAdvancedStrategy": true,
+  "isPaceFree": false
+}

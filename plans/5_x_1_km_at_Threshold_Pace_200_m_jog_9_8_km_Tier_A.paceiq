@@ -1,0 +1,85 @@
+{
+  "id": "3A4649A3-6EBE-5571-BCAB-6EBE781AB2B7",
+  "name": "5 x 1 km at Threshold Pace, 200 m jog (9.8 km) - Tier A",
+  "createdAt": "2026-09-22T09:00:00Z",
+  "goalType": "iq_plan_goal_distance",
+  "targetDistanceDisplay": 9.8,
+  "targetTimeMinutes": 30.0,
+  "paceStrategy": "iq_plan_strategy_manual",
+  "selectedFilter": "iq_plan_filter_outdoor_run",
+  "historyCount": 5.0,
+  "manualPaceText": "4:04",
+  "baselinePaceText": "4:04",
+  "advancedSplits": [
+    {
+      "id": "89C77452-0945-56A7-A6D8-332379D7E577",
+      "type": "iq_plan_split_distance",
+      "valueText": "2.5",
+      "paceText": ""
+    },
+    {
+      "id": "2448DECB-E362-57B0-B5D5-65457C815F96",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "4:04"
+    },
+    {
+      "id": "89BD6870-2868-5B41-A6D6-A0ED0DFECFEF",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.2",
+      "paceText": ""
+    },
+    {
+      "id": "52EAFE56-D510-531A-89A8-00441731796C",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "4:04"
+    },
+    {
+      "id": "5736C628-F590-5165-85FD-FE2CBB3DA5FF",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.2",
+      "paceText": ""
+    },
+    {
+      "id": "57833D16-78A0-5643-8A70-756014FC6208",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "4:04"
+    },
+    {
+      "id": "E4615A47-C5FE-5F96-9C7D-C890E7BC0038",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.2",
+      "paceText": ""
+    },
+    {
+      "id": "DD407583-CB00-5F57-A870-931113D0096E",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "4:04"
+    },
+    {
+      "id": "558002DB-649D-56F0-866E-78335239E85F",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.2",
+      "paceText": ""
+    },
+    {
+      "id": "710F23BB-F89E-554F-A2FE-C6914326A52F",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.0",
+      "paceText": "4:04"
+    },
+    {
+      "id": "B2150471-CEED-5342-B97E-D2936E60FC57",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.5",
+      "paceText": ""
+    }
+  ],
+  "safetyGuardianEnabled": false,
+  "maxEffortRPE": 7.0,
+  "showAdvancedStrategy": true,
+  "isPaceFree": false
+}

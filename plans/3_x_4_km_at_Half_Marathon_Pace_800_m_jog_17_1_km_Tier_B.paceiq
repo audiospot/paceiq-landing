@@ -1,0 +1,61 @@
+{
+  "id": "13AD19E0-E24C-5039-B238-87F5A5D35CCE",
+  "name": "3 x 4 km at Half Marathon Pace, 800 m jog (17.1 km) - Tier B",
+  "createdAt": "2026-09-22T09:00:00Z",
+  "goalType": "iq_plan_goal_distance",
+  "targetDistanceDisplay": 17.1,
+  "targetTimeMinutes": 30.0,
+  "paceStrategy": "iq_plan_strategy_manual",
+  "selectedFilter": "iq_plan_filter_outdoor_run",
+  "historyCount": 5.0,
+  "manualPaceText": "4:25",
+  "baselinePaceText": "4:25",
+  "advancedSplits": [
+    {
+      "id": "A4654B00-6C93-51A0-B56E-258417C89583",
+      "type": "iq_plan_split_distance",
+      "valueText": "2.0",
+      "paceText": ""
+    },
+    {
+      "id": "D02A004D-4897-5732-84DB-5C53F4ED7C73",
+      "type": "iq_plan_split_distance",
+      "valueText": "4.0",
+      "paceText": "4:25"
+    },
+    {
+      "id": "57A5EDA5-E77F-5751-B7CB-0F325DFE1938",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.8",
+      "paceText": ""
+    },
+    {
+      "id": "C0DDEB55-A06A-5D38-B01E-D2A1044DAA6A",
+      "type": "iq_plan_split_distance",
+      "valueText": "4.0",
+      "paceText": "4:25"
+    },
+    {
+      "id": "B93D4C65-E9CB-5A2B-B98F-DBDD2830E6BE",
+      "type": "iq_plan_split_distance",
+      "valueText": "0.8",
+      "paceText": ""
+    },
+    {
+      "id": "4C3F9BB2-2839-59A2-AAC4-3267D2354C1F",
+      "type": "iq_plan_split_distance",
+      "valueText": "4.0",
+      "paceText": "4:25"
+    },
+    {
+      "id": "2D87CAE3-7215-56E2-8187-0707AA19824A",
+      "type": "iq_plan_split_distance",
+      "valueText": "1.5",
+      "paceText": ""
+    }
+  ],
+  "safetyGuardianEnabled": false,
+  "maxEffortRPE": 7.0,
+  "showAdvancedStrategy": true,
+  "isPaceFree": false
+}
