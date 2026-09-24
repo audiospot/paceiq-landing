@@ -143,6 +143,7 @@ header { border-bottom: 1px solid var(--line); }
 .policy p, .policy li { color: var(--muted); }
 .policy p + p, .policy p + ul, .policy ul + p, .policy dl + p { margin-top: 14px; }
 .policy strong { color: var(--text); font-weight: 650; }
+.policy code { font: .92em ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; color: var(--text); }
 .policy ul { margin: 0; padding-left: 22px; }
 .policy li { padding-left: 4px; }
 .policy li + li { margin-top: 8px; }
@@ -276,29 +277,39 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
         <li>Heart rate recovery (one-minute post-workout)</li>
         <li>Step count</li>
         <li>Running dynamics (stride length, ground contact time, vertical oscillation, running power — Apple Watch Series 6+ only)</li>
+        <li>Elevation gain and loss already stored with workouts recorded by other apps, such as Apple's Workout app</li>
         <li>Body mass and height (used for physiological calculations)</li>
         <li>Date of birth and biological sex (used to personalize heart rate zone calculations)</li>
       </ul>
-      <p>When you complete a guided workout on your Apple Watch, PaceIQ saves that workout — including its route and the standard workout metrics recorded during the session — to Apple Health, so your training history stays together with your other activity data. Apart from saving your own completed workouts, PaceIQ does not write any other data to Apple Health.</p>
-      <p class="callout">All HealthKit data remains on your device. It is never transmitted to our servers, shared with third parties, or used for advertising purposes.</p>
+      <p>When you complete a workout recorded with PaceIQ on your Apple Watch or iPhone, PaceIQ saves that workout — including its route and the standard workout metrics recorded during the session, such as heart rate from a connected sensor (see <a href="#motion-sensors">Section 2.3</a>) — to Apple Health, so your training history stays together with your other activity data. Apart from saving your own completed workouts, PaceIQ does not write any other data to Apple Health.</p>
+      <p class="callout">All HealthKit data remains on your device. It is never transmitted to our servers, shared with third parties, or used for advertising purposes. The only exceptions are ones you start yourself: a workout image you choose to share (<a href="#social-sharing">Section 2.8</a>) and an AI briefing you choose to copy and paste (<a href="#ai-analyst">Section 2.7</a>).</p>
 
       <h3 id="location-data"><span class="num">2.2</span>Location Data</h3>
       <p>PaceIQ uses your device location for the following purposes only:</p>
       <dl>
         <div><dt>Apple Watch</dt><dd>GPS coordinates are used during active workout sessions to calculate distance, pace, and route tracking, and to fetch the weather conditions for that session.</dd></div>
-        <div><dt>iPhone</dt><dd>Location is used contextually when you access the Weather-Adjusted Pace feature to fetch real-time weather conditions, and during a workout recorded on your iPhone to fetch the weather conditions for that session.</dd></div>
+        <div><dt>iPhone</dt><dd>GPS coordinates are used during a workout recorded on your iPhone to calculate distance, pace, and route tracking, and to fetch the weather conditions for that session. Location is also used contextually when you access the Weather-Adjusted Pace feature to fetch real-time weather conditions.</dd></div>
       </dl>
       <p>Location data is processed only for these purposes. Aside from your completed workout's route, which is saved to Apple Health as described in <a href="#health-data">Section 2.1</a>, it is not stored beyond the active session context.</p>
       <p>PaceIQ does not operate its own servers, so your location is never sent to any Audiospot server. When weather is needed, your location coordinates are sent to Apple WeatherKit solely to retrieve conditions for that location: when you use the Weather-Adjusted Pace feature, and during a workout recorded on your iPhone or Apple Watch, to capture the weather conditions for that session (at the start and about every 20 minutes). Location is sent only to Apple WeatherKit for this purpose, and no weather request is made during a workout without GPS, such as a treadmill session. Only the coordinates required for the forecast are sent — no health data or personal identifiers are included — and your location is never used for advertising or to track you across other apps or websites.</p>
 
-      <h3 id="weather-data"><span class="num">2.3</span>Weather Data</h3>
+      <h3 id="motion-sensors"><span class="num">2.3</span>Motion and Sensor Data</h3>
+      <p>During a workout recorded with PaceIQ, the App uses the motion sensors built into your iPhone or Apple Watch through Apple's Core Motion framework:</p>
+      <dl>
+        <div><dt>Pedometer</dt><dd>Steps and cadence (steps per minute).</dd></div>
+        <div><dt>Barometer</dt><dd>Changes in relative altitude, used to calculate how much you climbed and descended. Readings are filtered on the device and paused while you are stopped, so a lift or stairs during a break are not counted.</dd></div>
+      </dl>
+      <p>PaceIQ does not keep raw altitude readings. It keeps only the resulting totals for the workout — elevation gain, elevation loss, and the climb in the final two minutes, used for the "finish uphill" bonus. When a workout is recorded on Apple Watch, these values are sent from your Watch to your iPhone and stored there with that workout. Motion data is never sent to any server. It leaves your device only if you copy an AI briefing and paste it somewhere yourself (<a href="#ai-analyst">Section 2.7</a>).</p>
+      <p>During a workout recorded on your iPhone, PaceIQ can also receive live heart rate from a Bluetooth heart-rate sensor you have connected to your iPhone, such as a chest strap or a compatible watch that broadcasts the standard Bluetooth heart-rate profile. PaceIQ receives these readings through iOS; it installs nothing on the sensor and connects to no service run by the sensor's maker. The readings are used during the workout and saved to Apple Health with that workout.</p>
+
+      <h3 id="weather-data"><span class="num">2.4</span>Weather Data</h3>
       <p>When you use the Weather-Adjusted Pace feature, PaceIQ requests current weather conditions (temperature, humidity, wind speed) for your location via Apple WeatherKit. This data is used solely within the App to calculate pace adjustments and is not stored on external servers.</p>
       <p>During a workout recorded on your iPhone or Apple Watch, PaceIQ also records the weather conditions for that session, as described in <a href="#location-data">Section 2.2</a>. They are stored on your device with that workout and shown in Last Workout and History; viewing a past workout does not send your location anywhere.</p>
 
-      <h3 id="purchase-data"><span class="num">2.4</span>Purchase and Subscription Data</h3>
+      <h3 id="purchase-data"><span class="num">2.5</span>Purchase and Subscription Data</h3>
       <p>PaceIQ uses Apple StoreKit 2 and a third-party service, RevenueCat, to manage subscriptions (Free, Pro, and Elite tiers) and validate in-app purchases. When you make a purchase, the payment is securely processed by Apple. PaceIQ does not collect, store, or have access to your payment information (such as credit card details). To manage your subscription status across your devices and securely validate entitlements, we share anonymous purchase receipt data and an anonymous App User ID with RevenueCat. RevenueCat does not receive personal identifiable information (like your name or email) from PaceIQ.</p>
 
-      <h3 id="preferences"><span class="num">2.5</span>User Preferences and App Data</h3>
+      <h3 id="preferences"><span class="num">2.6</span>User Preferences and App Data</h3>
       <p>PaceIQ stores the following preferences locally on your device:</p>
       <ul>
         <li>Unit system preference (metric/imperial)</li>
@@ -310,12 +321,13 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
       </ul>
       <p>This data is stored in Apple UserDefaults and an App Group shared container (used to share data between the iPhone app and Apple Watch app). It is never transmitted externally.</p>
 
-      <h3 id="ai-analyst"><span class="num">2.6</span>AI Analyst Feature</h3>
-      <p>The AI Analyst feature generates a structured workout summary that you may voluntarily copy to your clipboard. This summary is assembled entirely on your device. PaceIQ does not transmit this data anywhere. Any use of the copied content with a third-party AI service is governed by that service's own privacy policy.</p>
+      <h3 id="ai-analyst"><span class="num">2.7</span>AI Analyst Feature</h3>
+      <p>The AI Analyst feature generates a structured briefing that you may voluntarily copy to your clipboard: a summary of a single workout, or, from the History tab, a trend summary of a range of recent workouts you select (from 2 up to 30). The briefing is assembled entirely on your device and may include your workout statistics, heart rate, elevation, and weather. PaceIQ does not transmit this data anywhere; you alone decide where, if anywhere, to paste it. Any use of the copied content with a third-party AI service is governed by that service's own privacy policy.</p>
 
-      <h3 id="social-sharing"><span class="num">2.7</span>Social Sharing</h3>
+      <h3 id="social-sharing"><span class="num">2.8</span>Social Sharing</h3>
       <p>PaceIQ includes an optional sharing feature that lets you create a shareable image of a completed workout. This image may include your workout statistics (such as pace, distance, elapsed time, and top speed), a drawing of your route, weather conditions, and — if you choose photo mode — a photo you select from your device. The image is composed entirely on your device.</p>
       <p>Sharing only happens when you actively choose it. When you do, PaceIQ hands the finished image to your chosen destination — Instagram, Facebook, or the standard iOS share sheet — using Apple's standard sharing mechanisms. PaceIQ does not transmit this image to any Audiospot server, and it uses no Instagram, Facebook, or Meta software development kit, analytics, or tracking. Once the image reaches a third-party app such as Instagram or Facebook, that app's own privacy policy governs how it is handled.</p>
+      <p>You can also share a workout plan as a <code>.paceiq</code> file through the iOS share sheet, for example with a friend or a coach. A plan file contains the plan itself — its name, creation date, target distance or time, target paces, and segments — and no health data, location, or personal identifiers. It is sent only to the destination you choose.</p>
       <p>To support this feature, PaceIQ may access a photo you select as the background of your share image, and — with your permission — may save a generated share image to your device's photo library. Neither action transmits your photos anywhere; they remain on your device unless you choose to share them.</p>
     </section>
 
@@ -337,7 +349,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
       <p>We do not use third-party advertising networks, we do not display ads in the app, and we do not track you across other companies' apps or websites.</p>
       <p>Specifically, we continue to guarantee:</p>
       <ul>
-        <li>No health or personal fitness data leaves your device automatically. It leaves your device only when you explicitly choose to share a workout image via the in-app sharing feature. Location data leaves your device only to fetch weather, as described above.</li>
+        <li>No health or personal fitness data leaves your device automatically. It leaves your device only when you explicitly choose to share a workout image via the in-app sharing feature, or when you paste an AI briefing that you copied yourself. Location data leaves your device only to fetch weather, as described above.</li>
         <li>No analytics services tracking your behavior (no Firebase, Mixpanel, etc.)</li>
         <li>No third-party advertising networks and no in-app ads.
           <p>PaceIQ collects only an anonymous Apple Search Ads attribution token (via Apple AdServices, through RevenueCat) to measure install-campaign attribution; it is never used to display ads or to track you across other apps.</p>
@@ -356,6 +368,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
         <li><strong>Apple StoreKit 2</strong> — subscription processing</li>
         <li><strong>Apple WatchConnectivity</strong> — communication between iPhone and Apple Watch</li>
         <li><strong>Apple CoreLocation</strong> — GPS and location services</li>
+        <li><strong>Apple Core Motion</strong> — steps, cadence, and barometric elevation during workouts</li>
       </ul>
       <p>In addition, we use the following third-party services:</p>
       <ul>
@@ -375,6 +388,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
       <p>You retain full control over your data at all times:</p>
       <dl>
         <div><dt>HealthKit access</dt><dd>Manage or revoke at any time via iOS Settings → Health → Data Access &amp; Devices → PaceIQ</dd></div>
+        <div><dt>Motion &amp; Fitness access</dt><dd>Manage via iOS Settings → Privacy &amp; Security → Motion &amp; Fitness → PaceIQ</dd></div>
         <div><dt>Location access</dt><dd>Manage via iOS Settings → Privacy &amp; Security → Location Services → PaceIQ</dd></div>
         <div><dt>Workout records</dt><dd>Delete from within the App or Apple Health</dd></div>
         <div><dt>Subscription</dt><dd>Manage via iOS Settings → [Your Name] → Subscriptions</dd></div>
