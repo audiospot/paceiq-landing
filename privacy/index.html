@@ -237,7 +237,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
     <div class="page-title">
       <h1>Privacy Policy</h1>
     </div>
-    <p class="meta"><span>PaceIQ — Developed by Audiospot</span><span>Last Updated: <strong>July 2026</strong></span></p>
+    <p class="meta"><span>PaceIQ — Developed by Audiospot</span><span>Last Updated: <strong>September 2026</strong></span></p>
   </div>
 </div>
 
@@ -285,14 +285,15 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
       <h3 id="location-data"><span class="num">2.2</span>Location Data</h3>
       <p>PaceIQ uses your device location for the following purposes only:</p>
       <dl>
-        <div><dt>Apple Watch</dt><dd>GPS coordinates are used during active workout sessions to calculate distance, pace, and route tracking.</dd></div>
-        <div><dt>iPhone</dt><dd>Location is used contextually when you access the Weather-Adjusted Pace feature to fetch real-time weather conditions.</dd></div>
+        <div><dt>Apple Watch</dt><dd>GPS coordinates are used during active workout sessions to calculate distance, pace, and route tracking, and to fetch the weather conditions for that session.</dd></div>
+        <div><dt>iPhone</dt><dd>Location is used contextually when you access the Weather-Adjusted Pace feature to fetch real-time weather conditions, and during a workout recorded on your iPhone to fetch the weather conditions for that session.</dd></div>
       </dl>
       <p>Location data is processed only for these purposes. Aside from your completed workout's route, which is saved to Apple Health as described in <a href="#health-data">Section 2.1</a>, it is not stored beyond the active session context.</p>
-      <p>PaceIQ does not operate its own servers, so your location is never sent to any Audiospot server. When weather is needed, your location coordinates are sent to a weather provider solely to retrieve conditions for that location: Apple WeatherKit by default, or, if WeatherKit is unavailable, a third-party weather service, Open-Meteo (<a href="https://open-meteo.com">https://open-meteo.com</a>). Only the coordinates required for the forecast are sent — no health data or personal identifiers are included — and your location is never used for advertising or to track you across other apps or websites.</p>
+      <p>PaceIQ does not operate its own servers, so your location is never sent to any Audiospot server. When weather is needed, your location coordinates are sent to Apple WeatherKit solely to retrieve conditions for that location: when you use the Weather-Adjusted Pace feature, and during a workout recorded on your iPhone or Apple Watch, to capture the weather conditions for that session (at the start and about every 20 minutes). Location is sent only to Apple WeatherKit for this purpose, and no weather request is made during a workout without GPS, such as a treadmill session. Only the coordinates required for the forecast are sent — no health data or personal identifiers are included — and your location is never used for advertising or to track you across other apps or websites.</p>
 
       <h3 id="weather-data"><span class="num">2.3</span>Weather Data</h3>
       <p>When you use the Weather-Adjusted Pace feature, PaceIQ requests current weather conditions (temperature, humidity, wind speed) for your location via Apple WeatherKit. This data is used solely within the App to calculate pace adjustments and is not stored on external servers.</p>
+      <p>During a workout recorded on your iPhone or Apple Watch, PaceIQ also records the weather conditions for that session, as described in <a href="#location-data">Section 2.2</a>. They are stored on your device with that workout and shown in Last Workout and History; viewing a past workout does not send your location anywhere.</p>
 
       <h3 id="purchase-data"><span class="num">2.4</span>Purchase and Subscription Data</h3>
       <p>PaceIQ uses Apple StoreKit 2 and a third-party service, RevenueCat, to manage subscriptions (Free, Pro, and Elite tiers) and validate in-app purchases. When you make a purchase, the payment is securely processed by Apple. PaceIQ does not collect, store, or have access to your payment information (such as credit card details). To manage your subscription status across your devices and securely validate entitlements, we share anonymous purchase receipt data and an anonymous App User ID with RevenueCat. RevenueCat does not receive personal identifiable information (like your name or email) from PaceIQ.</p>
@@ -320,7 +321,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
 
     <section id="storage" aria-labelledby="storage-title">
       <h2 id="storage-title"><span class="num">3.</span>Data storage and retention</h2>
-      <p>All health and fitness data collected by PaceIQ is stored on your device using Apple's native frameworks: SwiftData, UserDefaults, and HealthKit. PaceIQ does not operate its own external servers, databases, or cloud storage; the only information held off your device is the anonymous subscription data processed by RevenueCat, as described in the <a href="#sharing">Data Sharing</a> section. Your data remains under your full control at all times.</p>
+      <p>All health and fitness data collected by PaceIQ is stored on your device using Apple's native frameworks: SwiftData, UserDefaults, and HealthKit. PaceIQ does not operate its own external servers, databases, or cloud storage; the only information held off your device is the anonymous subscription and install-attribution data processed by RevenueCat, as described in the <a href="#sharing">Data Sharing</a> section. Your data remains under your full control at all times.</p>
       <p>Workout records stored within PaceIQ can be deleted at any time from within the App or from Apple Health.</p>
     </section>
 
@@ -328,7 +329,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
       <h2 id="sharing-title"><span class="num">4.</span>Data sharing</h2>
       <p>PaceIQ is designed with privacy in mind. We do not sell your personal data, and we do not share your health or personal fitness data with any third party for that third party's own purposes. Your data leaves your device only in these limited cases:</p>
       <dl>
-        <div><dt>Weather</dt><dd>Your location coordinates are sent to a weather provider — Apple WeatherKit, or, as a fallback, the third-party service Open-Meteo (<a href="https://open-meteo.com">https://open-meteo.com</a>) — solely to retrieve current weather for your location.</dd></div>
+        <div><dt>Weather</dt><dd>Your location coordinates are sent to Apple WeatherKit solely to retrieve current weather for your location.</dd></div>
         <div><dt>Subscriptions</dt><dd>Anonymous purchase receipt data and an anonymous app user identifier are processed by RevenueCat to validate your subscription and manage your access tier.</dd></div>
         <div><dt>Install attribution</dt><dd>An anonymous Apple Search Ads attribution token may be collected through Apple's AdServices framework (via RevenueCat) to measure whether your installation originated from an Apple Search Ads campaign.</dd></div>
         <div><dt>Social sharing</dt><dd>When you explicitly choose to share a workout, the share image you generated — which may include your workout statistics, route, weather, and any photo you selected — is handed to your chosen destination (Instagram, Facebook, or the iOS share sheet) through Apple's standard sharing mechanisms. This happens only at your initiative.</dd></div>
@@ -356,13 +357,12 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
         <li><strong>Apple WatchConnectivity</strong> — communication between iPhone and Apple Watch</li>
         <li><strong>Apple CoreLocation</strong> — GPS and location services</li>
       </ul>
-      <p>In addition, we use the following third-party service:</p>
+      <p>In addition, we use the following third-party services:</p>
       <ul>
         <li><strong>RevenueCat</strong> — backend subscription validation and entitlement management. By purchasing a subscription, you acknowledge that anonymous receipt data is processed by RevenueCat. You can review RevenueCat's Privacy Policy at: <a href="https://www.revenuecat.com/privacy/">https://www.revenuecat.com/privacy/</a></li>
-        <li><strong>Open-Meteo</strong> (<a href="https://open-meteo.com">https://open-meteo.com</a>) — a third-party weather service used as a fallback when Apple WeatherKit is unavailable. It receives your location coordinates for the sole purpose of returning current weather for that location.</li>
         <li><strong>Apple AdServices</strong> (Apple Search Ads attribution) — used, through RevenueCat, to collect an anonymous attribution token that indicates whether your installation originated from an Apple Search Ads campaign.</li>
       </ul>
-      <p>Each third-party service named above is contractually required to protect the limited data it receives to a standard consistent with this Privacy Policy, and to use that data only to provide the service described here.</p>
+      <p>Each third-party service named above receives only the limited data described in this Privacy Policy, solely to provide the service described here, and handles it under its own privacy policy.</p>
     </section>
 
     <section id="children" aria-labelledby="children-title">
