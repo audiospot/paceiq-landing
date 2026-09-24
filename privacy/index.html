@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Privacy Policy — PaceIQ</title>
+<meta name="description" content="How PaceIQ for Apple Watch and iPhone collects, uses and stores information. Health data stays on your device, and PaceIQ runs no servers of its own.">
+<link rel="icon" type="image/png" href="../assets/paceiq-icon.png">
+<link rel="canonical" href="https://paceiq.audiospot.audio/privacy/">
+<meta property="og:title" content="Privacy Policy — PaceIQ">
+<meta property="og:description" content="How PaceIQ for Apple Watch and iPhone collects, uses and stores information.">
+<meta property="og:image" content="../assets/paceiq-icon.png">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #090a0b;
+  --panel: #191b1e;
+  --panel-soft: #111315;
+  --text: #f4f5f6;
+  --muted: #b0b5bd;
+  --line: #34383e;
+  --blue: #3f8ef7;
+  --link: #83b7ff;
+  --amber: #fcb750;
+  --green: #30d158;
+  --gradient: linear-gradient(110deg, #35a8dc, #4fc98a 55%, #c9e65a);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .23em;
+  overflow-wrap: anywhere;
+}
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 5px;
+}
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+h1 { font-size: clamp(40px, 5.4vw, 66px); line-height: 1.06; font-weight: 720; letter-spacing: -.055em; }
+h2 { font-size: 27px; line-height: 1.2; font-weight: 680; letter-spacing: -.035em; }
+h3 { font-size: 19px; line-height: 1.3; font-weight: 650; letter-spacing: -.02em; }
+p { text-wrap: pretty; }
+.wrap { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
+.eyebrow {
+  color: var(--amber);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 750;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #646a73;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 750;
+  text-align: center;
+  text-decoration: none;
+}
+.button:hover { background: #252a30; text-decoration: none; }
+header { border-bottom: 1px solid var(--line); }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 88px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+.brand img { width: 38px; height: 38px; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 24px; margin-left: auto; }
+.nav-links a { color: var(--muted); font-size: 14px; text-decoration: none; padding-block: 12px; }
+.nav-links a:hover { color: var(--text); text-decoration: underline; }
+.nav-links a[aria-current="page"] { color: var(--text); }
+.page-head { padding-block: 72px 56px; border-bottom: 1px solid var(--line); }
+.page-title { position: relative; padding-left: 27px; }
+.page-title::before {
+  content: "";
+  position: absolute;
+  inset: 5px auto 4px 0;
+  width: 4px;
+  background: var(--gradient);
+  border-radius: 4px;
+}
+.meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 26px; color: var(--muted); font-size: 15px; }
+.meta strong { color: var(--text); font-weight: 600; }
+.layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 56px;
+  padding-block: 56px 96px;
+}
+.toc { position: sticky; top: 24px; align-self: start; }
+.toc p { color: var(--muted); font-size: 12px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 14px; }
+.toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+.toc a {
+  display: block;
+  padding: 6px 0 6px 16px;
+  margin-left: -1px;
+  border-left: 1px solid transparent;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+  text-decoration: none;
+}
+.toc a:hover { color: var(--text); border-left-color: var(--amber); }
+.policy { max-width: 760px; }
+.policy > section { padding-block: 40px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.policy > section:first-child { padding-top: 0; border-top: 0; }
+.policy h2 { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; }
+.policy h2 .num { color: #8bd3ab; font-weight: 400; font-variant-numeric: tabular-nums; }
+.policy h3 { display: flex; align-items: baseline; gap: 12px; margin: 34px 0 12px; scroll-margin-top: 16px; }
+.policy h3 .num { color: var(--muted); font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.policy p, .policy li { color: var(--muted); }
+.policy p + p, .policy p + ul, .policy ul + p, .policy dl + p { margin-top: 14px; }
+.policy strong { color: var(--text); font-weight: 650; }
+.policy ul { margin: 0; padding-left: 22px; }
+.policy li { padding-left: 4px; }
+.policy li + li { margin-top: 8px; }
+.policy li::marker { color: var(--amber); }
+.policy li p { margin-top: 8px; }
+.policy dl { margin: 14px 0 0; border-top: 1px solid var(--line); }
+.policy dl > div { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.policy dt { color: var(--text); font-weight: 600; font-size: 15px; }
+.policy dd { margin: 0; color: var(--muted); }
+.callout {
+  margin-top: 22px;
+  padding: 20px 24px;
+  border-left: 3px solid var(--green);
+  background: #121c16;
+  color: #d2ddd5;
+}
+.contact {
+  margin-top: 22px;
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.contact a { font-size: 19px; font-weight: 600; }
+.contact p + p { margin-top: 6px; }
+.disclaimer {
+  margin-top: 8px;
+  padding: 22px 24px;
+  border-left: 3px solid var(--amber);
+  background: #201b13;
+  color: #ded8cd;
+  font-size: 15px;
+}
+.disclaimer strong { color: var(--amber); }
+.policy .callout { color: #d2ddd5; }
+.policy .disclaimer { color: #ded8cd; }
+footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var(--muted); font-size: 13px; }
+.footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.footer-rule { height: 3px; width: 88px; background: var(--gradient); margin-bottom: 24px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 12px; }
+@media (max-width: 900px) {
+  .nav { gap: 16px; flex-wrap: wrap; padding-block: 16px; }
+  .layout { grid-template-columns: 1fr; gap: 36px; }
+  .toc { position: static; padding: 20px 22px; background: var(--panel-soft); border: 1px solid var(--line); border-radius: 14px; }
+  .toc ol { columns: 2; column-gap: 24px; border-left: 0; }
+  .toc li { break-inside: avoid; }
+  .toc a { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 680px) {
+  body { font-size: 16px; }
+  .nav { column-gap: 12px; }
+  .nav-links { order: 3; width: 100%; margin: 0; gap: 16px; }
+  .nav-links a { padding-block: 8px; }
+  .nav > .button { margin-left: auto; }
+  .page-head { padding-block: 44px 40px; }
+  .page-title { padding-left: 17px; }
+  .layout { padding-block: 36px 64px; }
+  .toc ol { columns: 1; }
+  h2 { font-size: 23px; }
+  .policy > section { padding-block: 32px; }
+  .policy dl > div { grid-template-columns: 1fr; gap: 4px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (forced-colors: active) {
+  .page-title::before, .footer-rule { background: CanvasText; }
+  .button { border: 1px solid ButtonText; }
+}
+@media print {
+  :root { --bg: #fff; --text: #000; --muted: #222; --line: #bbb; --link: #000; }
+  header nav, header .button, .toc { display: none; }
+  .layout { grid-template-columns: 1fr; }
+  .callout, .disclaimer, .contact { background: none; color: #000; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><img src="../assets/paceiq-icon.png" width="38" height="38" alt="PaceIQ icon">PaceIQ</a>
+    <nav class="nav-links" aria-label="Site">
+      <a href="../">Home</a>
+      <a href="./" aria-current="page">Privacy Policy</a>
+    </nav>
+    <a class="button" href="https://apps.apple.com/il/app/paceiq/id6766809450">App Store</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <div class="page-title">
+      <h1>Privacy Policy</h1>
+    </div>
+    <p class="meta"><span>PaceIQ — Developed by Audiospot</span><span>Last Updated: <strong>July 2026</strong></span></p>
+  </div>
+</div>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="On this page">
+    <p>On this page</p>
+    <ol>
+      <li><a href="#introduction">1. Introduction</a></li>
+      <li><a href="#data-collection">2. Data collection and use</a></li>
+      <li><a href="#storage">3. Data storage and retention</a></li>
+      <li><a href="#sharing">4. Data sharing</a></li>
+      <li><a href="#third-parties">5. Third-party frameworks and services</a></li>
+      <li><a href="#children">6. Children's privacy</a></li>
+      <li><a href="#rights">7. Your rights and controls</a></li>
+      <li><a href="#changes">8. Changes to this policy</a></li>
+      <li><a href="#contact">9. Contact us</a></li>
+    </ol>
+  </nav>
+
+  <article class="policy">
+    <section id="introduction" aria-labelledby="introduction-title">
+      <h2 id="introduction-title"><span class="num">1.</span>Introduction</h2>
+      <p>PaceIQ ("the App") is developed and operated by Audiospot ("we," "us," or "our"). This Privacy Policy describes how the App collects, uses, and stores information when you use PaceIQ on iPhone and Apple Watch.</p>
+      <p>By using PaceIQ, you agree to the practices described in this Privacy Policy.</p>
+    </section>
+
+    <section id="data-collection" aria-labelledby="data-collection-title">
+      <h2 id="data-collection-title"><span class="num">2.</span>Data collection and use</h2>
+
+      <h3 id="health-data"><span class="num">2.1</span>Health Data (Apple HealthKit)</h3>
+      <p>PaceIQ requests access to your Apple Health data for the sole purpose of displaying and analyzing your workout performance. The following data types may be read from Apple HealthKit, subject to your explicit authorization:</p>
+      <ul>
+        <li>Workout data (type, distance, duration, calories burned)</li>
+        <li>Walking and running speed</li>
+        <li>Heart rate (during workout and resting heart rate)</li>
+        <li>Heart rate recovery (one-minute post-workout)</li>
+        <li>Step count</li>
+        <li>Running dynamics (stride length, ground contact time, vertical oscillation, running power — Apple Watch Series 6+ only)</li>
+        <li>Body mass and height (used for physiological calculations)</li>
+        <li>Date of birth and biological sex (used to personalize heart rate zone calculations)</li>
+      </ul>
+      <p>When you complete a guided workout on your Apple Watch, PaceIQ saves that workout — including its route and the standard workout metrics recorded during the session — to Apple Health, so your training history stays together with your other activity data. Apart from saving your own completed workouts, PaceIQ does not write any other data to Apple Health.</p>
+      <p class="callout">All HealthKit data remains on your device. It is never transmitted to our servers, shared with third parties, or used for advertising purposes.</p>
+
+      <h3 id="location-data"><span class="num">2.2</span>Location Data</h3>
+      <p>PaceIQ uses your device location for the following purposes only:</p>
+      <dl>
+        <div><dt>Apple Watch</dt><dd>GPS coordinates are used during active workout sessions to calculate distance, pace, and route tracking.</dd></div>
+        <div><dt>iPhone</dt><dd>Location is used contextually when you access the Weather-Adjusted Pace feature to fetch real-time weather conditions.</dd></div>
+      </dl>
+      <p>Location data is processed only for these purposes. Aside from your completed workout's route, which is saved to Apple Health as described in <a href="#health-data">Section 2.1</a>, it is not stored beyond the active session context.</p>
+      <p>PaceIQ does not operate its own servers, so your location is never sent to any Audiospot server. When weather is needed, your location coordinates are sent to a weather provider solely to retrieve conditions for that location: Apple WeatherKit by default, or, if WeatherKit is unavailable, a third-party weather service, Open-Meteo (<a href="https://open-meteo.com">https://open-meteo.com</a>). Only the coordinates required for the forecast are sent — no health data or personal identifiers are included — and your location is never used for advertising or to track you across other apps or websites.</p>
+
+      <h3 id="weather-data"><span class="num">2.3</span>Weather Data</h3>
+      <p>When you use the Weather-Adjusted Pace feature, PaceIQ requests current weather conditions (temperature, humidity, wind speed) for your location via Apple WeatherKit. This data is used solely within the App to calculate pace adjustments and is not stored on external servers.</p>
+
+      <h3 id="purchase-data"><span class="num">2.4</span>Purchase and Subscription Data</h3>
+      <p>PaceIQ uses Apple StoreKit 2 and a third-party service, RevenueCat, to manage subscriptions (Free, Pro, and Elite tiers) and validate in-app purchases. When you make a purchase, the payment is securely processed by Apple. PaceIQ does not collect, store, or have access to your payment information (such as credit card details). To manage your subscription status across your devices and securely validate entitlements, we share anonymous purchase receipt data and an anonymous App User ID with RevenueCat. RevenueCat does not receive personal identifiable information (like your name or email) from PaceIQ.</p>
+
+      <h3 id="preferences"><span class="num">2.5</span>User Preferences and App Data</h3>
+      <p>PaceIQ stores the following preferences locally on your device:</p>
+      <ul>
+        <li>Unit system preference (metric/imperial)</li>
+        <li>Color scheme preference</li>
+        <li>Language selection</li>
+        <li>Default workout type</li>
+        <li>Notification preferences</li>
+        <li>Birth year (if provided during onboarding)</li>
+      </ul>
+      <p>This data is stored in Apple UserDefaults and an App Group shared container (used to share data between the iPhone app and Apple Watch app). It is never transmitted externally.</p>
+
+      <h3 id="ai-analyst"><span class="num">2.6</span>AI Analyst Feature</h3>
+      <p>The AI Analyst feature generates a structured workout summary that you may voluntarily copy to your clipboard. This summary is assembled entirely on your device. PaceIQ does not transmit this data anywhere. Any use of the copied content with a third-party AI service is governed by that service's own privacy policy.</p>
+
+      <h3 id="social-sharing"><span class="num">2.7</span>Social Sharing</h3>
+      <p>PaceIQ includes an optional sharing feature that lets you create a shareable image of a completed workout. This image may include your workout statistics (such as pace, distance, elapsed time, and top speed), a drawing of your route, weather conditions, and — if you choose photo mode — a photo you select from your device. The image is composed entirely on your device.</p>
+      <p>Sharing only happens when you actively choose it. When you do, PaceIQ hands the finished image to your chosen destination — Instagram, Facebook, or the standard iOS share sheet — using Apple's standard sharing mechanisms. PaceIQ does not transmit this image to any Audiospot server, and it uses no Instagram, Facebook, or Meta software development kit, analytics, or tracking. Once the image reaches a third-party app such as Instagram or Facebook, that app's own privacy policy governs how it is handled.</p>
+      <p>To support this feature, PaceIQ may access a photo you select as the background of your share image, and — with your permission — may save a generated share image to your device's photo library. Neither action transmits your photos anywhere; they remain on your device unless you choose to share them.</p>
+    </section>
+
+    <section id="storage" aria-labelledby="storage-title">
+      <h2 id="storage-title"><span class="num">3.</span>Data storage and retention</h2>
+      <p>All health and fitness data collected by PaceIQ is stored on your device using Apple's native frameworks: SwiftData, UserDefaults, and HealthKit. PaceIQ does not operate its own external servers, databases, or cloud storage; the only information held off your device is the anonymous subscription data processed by RevenueCat, as described in the <a href="#sharing">Data Sharing</a> section. Your data remains under your full control at all times.</p>
+      <p>Workout records stored within PaceIQ can be deleted at any time from within the App or from Apple Health.</p>
+    </section>
+
+    <section id="sharing" aria-labelledby="sharing-title">
+      <h2 id="sharing-title"><span class="num">4.</span>Data sharing</h2>
+      <p>PaceIQ is designed with privacy in mind. We do not sell your personal data, and we do not share your health or personal fitness data with any third party for that third party's own purposes. Your data leaves your device only in these limited cases:</p>
+      <dl>
+        <div><dt>Weather</dt><dd>Your location coordinates are sent to a weather provider — Apple WeatherKit, or, as a fallback, the third-party service Open-Meteo (<a href="https://open-meteo.com">https://open-meteo.com</a>) — solely to retrieve current weather for your location.</dd></div>
+        <div><dt>Subscriptions</dt><dd>Anonymous purchase receipt data and an anonymous app user identifier are processed by RevenueCat to validate your subscription and manage your access tier.</dd></div>
+        <div><dt>Install attribution</dt><dd>An anonymous Apple Search Ads attribution token may be collected through Apple's AdServices framework (via RevenueCat) to measure whether your installation originated from an Apple Search Ads campaign.</dd></div>
+        <div><dt>Social sharing</dt><dd>When you explicitly choose to share a workout, the share image you generated — which may include your workout statistics, route, weather, and any photo you selected — is handed to your chosen destination (Instagram, Facebook, or the iOS share sheet) through Apple's standard sharing mechanisms. This happens only at your initiative.</dd></div>
+      </dl>
+      <p>We do not use third-party advertising networks, we do not display ads in the app, and we do not track you across other companies' apps or websites.</p>
+      <p>Specifically, we continue to guarantee:</p>
+      <ul>
+        <li>No health or personal fitness data leaves your device automatically. It leaves your device only when you explicitly choose to share a workout image via the in-app sharing feature. Location data leaves your device only to fetch weather, as described above.</li>
+        <li>No analytics services tracking your behavior (no Firebase, Mixpanel, etc.)</li>
+        <li>No third-party advertising networks and no in-app ads.
+          <p>PaceIQ collects only an anonymous Apple Search Ads attribution token (via Apple AdServices, through RevenueCat) to measure install-campaign attribution; it is never used to display ads or to track you across other apps.</p>
+        </li>
+        <li>No crash reporting services that transmit personal data</li>
+        <li>No cloud backends operated by Audiospot</li>
+      </ul>
+    </section>
+
+    <section id="third-parties" aria-labelledby="third-parties-title">
+      <h2 id="third-parties-title"><span class="num">5.</span>Third-party frameworks and services</h2>
+      <p>PaceIQ uses the following Apple-provided frameworks that operate under Apple's own privacy policies (<a href="https://www.apple.com/legal/privacy/">https://www.apple.com/legal/privacy/</a>):</p>
+      <ul>
+        <li><strong>Apple HealthKit</strong> — health and fitness data</li>
+        <li><strong>Apple WeatherKit</strong> — real-time weather data</li>
+        <li><strong>Apple StoreKit 2</strong> — subscription processing</li>
+        <li><strong>Apple WatchConnectivity</strong> — communication between iPhone and Apple Watch</li>
+        <li><strong>Apple CoreLocation</strong> — GPS and location services</li>
+      </ul>
+      <p>In addition, we use the following third-party service:</p>
+      <ul>
+        <li><strong>RevenueCat</strong> — backend subscription validation and entitlement management. By purchasing a subscription, you acknowledge that anonymous receipt data is processed by RevenueCat. You can review RevenueCat's Privacy Policy at: <a href="https://www.revenuecat.com/privacy/">https://www.revenuecat.com/privacy/</a></li>
+        <li><strong>Open-Meteo</strong> (<a href="https://open-meteo.com">https://open-meteo.com</a>) — a third-party weather service used as a fallback when Apple WeatherKit is unavailable. It receives your location coordinates for the sole purpose of returning current weather for that location.</li>
+        <li><strong>Apple AdServices</strong> (Apple Search Ads attribution) — used, through RevenueCat, to collect an anonymous attribution token that indicates whether your installation originated from an Apple Search Ads campaign.</li>
+      </ul>
+      <p>Each third-party service named above is contractually required to protect the limited data it receives to a standard consistent with this Privacy Policy, and to use that data only to provide the service described here.</p>
+    </section>
+
+    <section id="children" aria-labelledby="children-title">
+      <h2 id="children-title"><span class="num">6.</span>Children's privacy</h2>
+      <p>PaceIQ is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided personal information through the App, please contact us at the address below.</p>
+    </section>
+
+    <section id="rights" aria-labelledby="rights-title">
+      <h2 id="rights-title"><span class="num">7.</span>Your rights and controls</h2>
+      <p>You retain full control over your data at all times:</p>
+      <dl>
+        <div><dt>HealthKit access</dt><dd>Manage or revoke at any time via iOS Settings → Health → Data Access &amp; Devices → PaceIQ</dd></div>
+        <div><dt>Location access</dt><dd>Manage via iOS Settings → Privacy &amp; Security → Location Services → PaceIQ</dd></div>
+        <div><dt>Workout records</dt><dd>Delete from within the App or Apple Health</dd></div>
+        <div><dt>Subscription</dt><dd>Manage via iOS Settings → [Your Name] → Subscriptions</dd></div>
+        <div><dt>Data deletion requests</dt><dd>Because PaceIQ keeps almost no data off your device, you can remove essentially all of your information yourself using the controls above. For the limited anonymous subscription data held by RevenueCat, you may request deletion at any time by emailing <a href="mailto:sagi@audiospot.audio">sagi@audiospot.audio</a>.</dd></div>
+      </dl>
+    </section>
+
+    <section id="changes" aria-labelledby="changes-title">
+      <h2 id="changes-title"><span class="num">8.</span>Changes to this policy</h2>
+      <p>We may update this Privacy Policy to reflect changes in App features or applicable law. The "Last Updated" date at the top of this document will reflect any changes. Continued use of the App after an update constitutes acceptance of the revised policy.</p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title"><span class="num">9.</span>Contact us</h2>
+      <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+      <div class="contact">
+        <p><a href="mailto:sagi@audiospot.audio">sagi@audiospot.audio</a></p>
+        <p>Audiospot</p>
+      </div>
+    </section>
+
+    <p class="disclaimer"><strong>PaceIQ is not a medical application.</strong> The data displayed is for informational and general fitness purposes only and does not constitute medical advice. Consult a qualified healthcare provider before beginning any intensive exercise program if you have pre-existing health conditions.</p>
+  </article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-rule" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <div>
+        <p>PaceIQ for Apple Watch and iPhone. Made by Sagi Gal. <a href="mailto:sagi@audiospot.audio">sagi@audiospot.audio</a></p>
+        <p class="footer-links"><a href="../">Home</a><a href="./" aria-current="page">Privacy Policy</a></p>
+      </div>
+      <p>Apple, Apple Watch, iPhone, App Store, Dynamic Island and Apple Health are trademarks of Apple Inc. This page sets no cookies and loads nothing from third parties.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
