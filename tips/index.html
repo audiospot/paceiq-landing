@@ -170,6 +170,8 @@ header { border-bottom: 1px solid var(--line); }
 .shot.crop img { border-radius: 16px; }
 .shot.wide { width: 380px; }
 .shot.wide img { border-radius: 16px; }
+.shot.icon { width: 190px; }
+.shot.icon img { border-radius: 22px; }
 .shot.watch { width: 168px; }
 .shot.watch img { border-radius: 38px; padding: 5px; background: #080909; border-color: #59605f; }
 .shot figcaption { color: var(--muted); font-size: 13px; line-height: 1.45; margin-top: 10px; max-width: 100%; }
@@ -208,6 +210,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
   .shot.phone { width: calc(50% - 6px); }
   .shot.phone img { border-radius: 20px; }
   .shot.watch { width: calc(50% - 6px); max-width: 168px; }
+  .shot.icon { width: calc(50% - 6px); max-width: 190px; }
   .shot.crop, .shot.wide { width: 100%; max-width: 380px; }
   .footer-inner { grid-template-columns: 1fr; gap: 20px; }
 }
@@ -397,6 +400,9 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
       <article class="tip reveal">
         <h3>Get told when a new workout is ready</h3>
         <p>In Settings, under Notifications, turn on <strong>Notify after each workout</strong>. The number on the PaceIQ app icon then shows how many new workouts you have not looked at yet. Opening the Last Workout screen clears the newest one. If more than one is waiting, open the others from History to clear them.</p>
+        <div class="shots">
+          <figure class="shot icon"><a href="../assets/tips/app-icon-badge.webp"><img src="../assets/tips/app-icon-badge.webp" loading="lazy" width="480" height="554" alt="The PaceIQ app icon on the Home Screen with a red badge showing 2"></a><figcaption>Two new workouts waiting</figcaption></figure>
+        </div>
       </article>
 
       <article class="tip reveal">
