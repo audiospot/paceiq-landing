@@ -368,6 +368,27 @@ header { border-bottom: 1px solid var(--line); }
 .asset-list li { min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 12px; border-top: 1px solid #41464d; padding: 10px 0; }
 .asset-list a { min-width: 0; overflow-wrap: anywhere; padding-block: 8px; font-size: 14px; }
 .asset-list span { color: var(--muted); font-size: 12px; }
+.more-tips { margin-top: 20px; font-size: 17px; font-weight: 650; }
+.more-tips a { display: inline-flex; align-items: center; gap: 8px; }
+.more-tips a span { transition: transform .25s ease; }
+.more-tips a:hover span { transform: translateX(4px); }
+.howto-shots { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px; margin-top: 24px; }
+.howto-shots figure { width: 230px; }
+.howto-shots img { width: 100%; border: 1px solid #3c4148; border-radius: 14px; background: #000; }
+.howto-shots figcaption { color: var(--muted); font-size: 13px; line-height: 1.45; margin-top: 10px; }
+.reviewer-teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--amber);
+  border-radius: 0 0 14px 14px;
+}
+.reviewer-teaser p { color: var(--muted); margin-top: 12px; max-width: 640px; }
+.reviewer-teaser .button { background: var(--gradient); color: #071a13; }
 footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var(--muted); font-size: 13px; }
 .footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .footer-rule { height: 3px; width: 88px; background: var(--gradient); margin-bottom: 24px; }
@@ -432,6 +453,9 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
   .press-head .button { width: 100%; }
   .asset-list { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 20px; }
+  .howto-shots figure { width: calc(50% - 8px); }
+  .reviewer-teaser { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+  .reviewer-teaser .button { width: 100%; }
 }
 @media (forced-colors: active) {
   .hero-heading .accent { background: none; color: CanvasText; }
@@ -534,6 +558,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
     <aside class="callout">
       <strong>Before you judge it:</strong> give PaceIQ two or three guided outdoor workouts rather than one. The coach learns your own stride during your first outdoor workouts, and that is when its guidance becomes precise. A guided workout is one you plan with a target pace in the IQ Plan tab; the quick free session on the Watch records your workout but does not coach.
     </aside>
+    <p class="more-tips"><a href="tips/">More tips for training with PaceIQ <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -659,7 +684,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
         </dl>
       </article>
     </div>
-    <p class="pace-note">Training paces follow the Daniels VDOT tables (VDOT 53, 49 and 45). The paces are in the file; you can change any of them in IQ Plan before you run.</p>
+    <p class="pace-note">Training paces follow the Daniels VDOT tables (VDOT 53, 49 and 45). The paces are in the file; you can change any of them in IQ Plan before you run. The files are in kilometres. On an iPhone set to miles, PaceIQ converts every distance and pace when it opens the file and shows the original next to it.</p>
 
     <div class="plan-list">
       <article class="plan" aria-labelledby="cruise-title">
@@ -736,6 +761,10 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
           <li>Load it into IQ Plan, or save it to your plan library, then send it to the Watch.</li>
         </ol>
         <p>Opening a plan file needs Elite.</p>
+        <div class="howto-shots">
+          <figure><img src="assets/tips/import-share-sheet.webp" loading="lazy" width="645" height="603" alt="Share sheet for a received PaceIQ plan file, with the PaceIQ app among the choices"><figcaption>Open the file with PaceIQ</figcaption></figure>
+          <figure><img src="assets/tips/import-units.webp" loading="lazy" width="645" height="835" alt="Import Plan preview: Half Marathon Run, distance converted from 21.1 km to 13.11 mi, Load Plan and Save to Library and Load"><figcaption>The import preview, here on a miles phone</figcaption></figure>
+        </div>
       </div>
     </aside>
   </div>
@@ -743,80 +772,13 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
 
 <section id="reviewers" aria-labelledby="reviewers-title">
   <div class="wrap">
-    <div class="section-intro">
-      <div class="eyebrow">For reviewers</div>
-      <h2 id="reviewers-title">Facts, materials and a direct line</h2>
-      <p class="lede">Everything a review needs, in one place. If something is missing, write and it will be added.</p>
-    </div>
-
-    <dl class="facts">
-      <div class="fact">
-        <dt>App Store</dt>
-        <dd>
-          <div class="value"><a href="https://apps.apple.com/il/app/paceiq/id6766809450">PaceIQ on the App Store</a></div>
-          <div class="sub">Bundle: com.audiospot.PaceIQ</div>
-        </dd>
+    <div class="reviewer-teaser">
+      <div>
+        <div class="eyebrow">For reviewers</div>
+        <h2 id="reviewers-title">For reviewers and creators</h2>
+        <p>Writing about PaceIQ or reviewing it? The facts, the press kit and how to redeem your review code are on a separate page.</p>
       </div>
-      <div class="fact">
-        <dt>Contact</dt>
-        <dd>
-          <div class="value"><a href="mailto:sagi@audiospot.audio">sagi@audiospot.audio</a></div>
-          <div class="sub">Sagi Gal, solo developer. Replies personally.</div>
-        </dd>
-      </div>
-      <div class="fact">
-        <dt>Prices (US store)</dt>
-        <dd>
-          <div class="value">Elite $34.99 / year · Pro $9.99 / year</div>
-          <div class="sub">Free tier: your last workout.</div>
-        </dd>
-      </div>
-      <div class="fact">
-        <dt>Requirements</dt>
-        <dd>
-          <div class="value">iOS 17.6 or later · watchOS 10 or later</div>
-          <div class="sub">A guided workout on the iPhone alone needs iOS 26 or later.</div>
-        </dd>
-      </div>
-      <div class="fact">
-        <dt>Languages</dt>
-        <dd>
-          <div class="value">17 languages</div>
-          <div class="sub">Interface and spoken coaching, with a language switcher inside the app.</div>
-        </dd>
-      </div>
-      <div class="fact">
-        <dt>Data</dt>
-        <dd>
-          <div class="value">No PaceIQ account, no PaceIQ server</div>
-          <div class="sub">Workouts live in Apple Health and on your devices; sharing is your choice, each time.</div>
-        </dd>
-      </div>
-    </dl>
-
-    <div class="press-kit">
-      <div class="press-head">
-        <img src="assets/paceiq-icon.png" loading="lazy" width="80" height="80" alt="PaceIQ icon">
-        <div>
-          <h3>Press kit</h3>
-          <a class="button" href="assets/paceiq-press-kit.zip" download>Download the press kit (zip, 1.2 MB)</a>
-          <p class="muted">Icon with transparency (1024 px) and ten screenshots, or pick single files below.</p>
-        </div>
-      </div>
-      <ul class="asset-list">
-        <li><a href="assets/paceiq-icon.png" download>App icon, transparent background</a><span>1024 × 1024</span></li>
-        <li><a href="assets/start-tab.png" download>Start tab</a><span>iPhone</span></li>
-        <li><a href="assets/iq-plan-tab.png" download>IQ Plan tab</a><span>iPhone</span></li>
-        <li><a href="assets/calculator-tab.png" download>Calculator tab</a><span>iPhone</span></li>
-        <li><a href="assets/post-workout-1.png" download>Post-workout view 1</a><span>iPhone</span></li>
-        <li><a href="assets/post-workout-2.png" download>Post-workout view 2</a><span>iPhone</span></li>
-        <li><a href="assets/last-workout-ai-analyst.png" download>AI Analyst card</a><span>iPhone</span></li>
-        <li><a href="assets/history-ai-trend.png" download>AI Trend Analysis card</a><span>iPhone</span></li>
-        <li><a href="assets/live-activity.png" download>Live Activity, Dynamic Island</a><span>iPhone</span></li>
-        <li><a href="assets/watch-during-workout.png" download>During a guided run</a><span>Apple Watch</span></li>
-        <li><a href="assets/watch-ready-to-start.png" download>Plan ready to start</a><span>Apple Watch</span></li>
-        <li><a href="assets/iq-plan-recording.mp4" download>IQ Plan screen recording</a><span>MP4, 27 s, silent, 1 MB</span></li>
-      </ul>
+      <a class="button" href="reviewers/">For reviewers and creators <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -826,7 +788,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
   <div class="wrap">
     <div class="footer-rule" aria-hidden="true"></div>
     <div class="footer-inner">
-      <p>PaceIQ for Apple Watch and iPhone. Made by Sagi Gal. <a href="mailto:sagi@audiospot.audio">sagi@audiospot.audio</a><br><a href="privacy/">Privacy Policy</a></p>
+      <p>PaceIQ for Apple Watch and iPhone. Made by Sagi Gal. <a href="mailto:sagi@audiospot.audio">sagi@audiospot.audio</a><br><a href="privacy/">Privacy Policy</a> · <a href="tips/">Tips</a></p>
       <p>Apple, Apple Watch, iPhone, App Store, Dynamic Island and Apple Health are trademarks of Apple Inc. This page sets no cookies and loads nothing from third parties.</p>
     </div>
   </div>

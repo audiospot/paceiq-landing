@@ -81,5 +81,6 @@
   "safetyGuardianEnabled": false,
   "maxEffortRPE": 7.0,
   "showAdvancedStrategy": true,
-  "isPaceFree": false
+  "isPaceFree": false,
+  "unitSystem": "metric"
 }
