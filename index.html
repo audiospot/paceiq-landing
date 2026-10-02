@@ -462,6 +462,8 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
   .hero-heading::before, .footer-rule { background: CanvasText; }
   .button, .downloads a { border: 1px solid ButtonText; }
 }
+.hero-mark { position: absolute; right: 0; top: 50%; width: 63px; height: 80px; transform: translateY(-50%); pointer-events: none; }
+@media (max-width: 680px) { .hero-mark { top: auto; bottom: 2px; transform: none; width: 41px; height: 52px; } }
 </style>
 </head>
 <body>
@@ -482,6 +484,7 @@ footer { border-top: 1px solid var(--line); padding-block: 34px 52px; color: var
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap">
     <div class="hero-heading">
+      <img class="hero-mark" src="assets/paceiq-icon-animated.svg" width="63" height="80" alt="" aria-hidden="true">
       <h1 id="hero-title">A private coach in your ear.<br><span class="accent">One honest screen afterwards.</span></h1>
     </div>
     <div class="hero-bottom">
